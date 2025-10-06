@@ -23,7 +23,7 @@
 #
 # 茶叶：6包
 
-import numpy as np
+import numpy as np, time
 
 def solve_milk_tea_problem():
     A = np.array([[2, 1, 0],
@@ -33,15 +33,13 @@ def solve_milk_tea_problem():
     b = np.array([10, 1, 2])
 
     x = np.linalg.solve(A, b)
-    print("解决方案是：")
     print(f"奶昔：{x[0]:.0f} 杯，巧克力奶茶：{x[1]:.0f} 杯，柠檬绿茶：{x[2]:.0f} 杯")
-
-if __name__ == "__main__":
-    solve_milk_tea_problem()
 
 
 import pandas as pd
 import matplotlib.pyplot as plt
+
+
 
 def analyze_sales():
     # Step 1: Create sales data
@@ -74,7 +72,27 @@ def analyze_sales():
     plt.tight_layout()
     plt.show()
 
+def range_test():
+    a = list(range(1000000))
+    b = np.array(a)
+
+    # list
+    start = time.time()
+    c = [x * 2 for x in a]
+    print("list time:", time.time() - start)
+
+    # numpy
+    start = time.time()
+    d = b * 2
+    print("numpy time:", time.time() - start)
+
 # Run the main function
 if __name__ == "__main__":
-    analyze_sales()
+    # analyze_sales()
+    # solve_milk_tea_problem()
+    # print(pd.__version__)
+    # print(np.__version__)
+    range_test()
+
+
 
